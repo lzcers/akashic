@@ -6,11 +6,12 @@ type Position = { x: number; y: number; z: number };
 interface BlockContainerProps {
     children?: React.ReactElement;
     position?: Position;
+    dragDisable?: boolean;
     setPosition?: (p: Position) => void;
 }
 
 export default (p: BlockContainerProps) => {
-    const { children, position = { x: 200, y: 200, z: 0 } } = p;
+    const { children, position = { x: 200, y: 200, z: 0 }, dragDisable = false } = p;
 
     const dragState = useRef({ dragable: false, sx: 0, sy: 0, px: 0, py: 0 });
     const [ps, setPs] = useState(position);
@@ -28,6 +29,7 @@ export default (p: BlockContainerProps) => {
     };
 
     const onDragStart = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (dragDisable) return;
         dragState.current = { dragable: true, sx: e.clientX, sy: e.clientY, px: ps.x, py: ps.y };
         window.addEventListener("mousemove", onDragMove);
         window.addEventListener("mouseup", onDragEnd);

@@ -2,9 +2,15 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Akashic</title>
+        <link rel="stylesheet" href="//unpkg.com/heti/umd/heti.min.css" />
+        <script src="//unpkg.com/heti/umd/heti-addon.min.js"></script>
+        <script>
+            const heti = new Heti(".heti");
+            heti.autoSpacing();
+        </script>
     </head>
     <body>
         <div id="root"></div>

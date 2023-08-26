@@ -1,0 +1,10 @@
+.akashic-block-md {
+    width: 100%;
+    height: 100%;
+    padding: 8px 12px;
+    outline: none;
+}
+
+.akashic-block-md > div {
+    outline: none;
+}
